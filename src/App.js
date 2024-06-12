@@ -6,7 +6,7 @@ function App() {
   const [data, setData] = useState();
 
   const updateData = () => {
-    axios.get('http://localhost:3000/api/products')
+    axios.get('http://localhost:3000/api/tasks')
       .then(function (response) {
         let newData = response.data
         setData(newData)
@@ -24,8 +24,8 @@ function App() {
           {!data ? <></> : 
             data.map((entry) => 
               <div>
-                <li>{entry.name}</li>
-                <li>{entry.price}</li>
+                <li>{entry.description}</li>
+                {/* <li>{entry.price}</li> */}
               </div>
             )
           }
