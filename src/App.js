@@ -4,14 +4,6 @@ import axios from 'axios';
 
 function App() {
   const [data, setData] = useState();
-  const [test, setTest] = useState([
-    {
-      name: "name 1"
-    },
-    {
-      name: "name 2"
-    }
-  ])
 
   const updateData = () => {
     axios.get('http://localhost:3000/api/products')
@@ -22,7 +14,6 @@ function App() {
   }
 
   useEffect(() => {
-    console.log(test);
   }, [data])
 
   return (
