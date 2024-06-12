@@ -25,7 +25,6 @@ function App() {
             data.map((entry) => 
               <div>
                 <li>{entry.description}</li>
-                {/* <li>{entry.price}</li> */}
               </div>
             )
           }
