@@ -3,34 +3,34 @@ import './App.css';
 import axios from 'axios';
 
 function App() {
-  const [data, setData] = useState();
+  const [taskList, setTaskList] = useState();
 
-  const updateData = () => {
+  const updateTaskList = () => {
     axios.get('http://localhost:3000/api/tasks')
       .then(function (response) {
-        let newData = response.data
-        setData(newData)
+        let newList = response.data
+        setTaskList(newList)
       })
   }
 
   useEffect(() => {
-  }, [data])
+  },[taskList])
+
+  // updateTaskList();
 
   return (
     <div className="App">
       <div>
-        <h1>Hello</h1>
+        <h1>To-do list</h1>
         <ul>
-          {!data ? <></> : 
-            data.map((entry) => 
-              <div>
-                <li>{entry.description}</li>
-              </div>
+          {!taskList ? <></> : 
+            taskList.map((entry) => 
+              <li id={entry._id}>{entry.description}</li>
             )
           }
         </ul>
       </div>
-      <button onClick={updateData}>Update</button>
+      <button onClick={updateTaskList}>Update</button>
     </div>
   );
 }
