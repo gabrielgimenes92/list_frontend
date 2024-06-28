@@ -32,8 +32,15 @@ function App() {
       });
   };
 
-  const handleToggleTaskCompleted = (id) => {
-    console.log(`Toggled - id:${id}`);
+  const handleToggleTaskCompleted = (id, event) => {
+    console.log(event.target.checked);
+
+    if (event.target.checked == true) {
+      axios.put(`http://localhost:3000/api/tasks/complete/${id}`);
+    } else if (event.target.checked == false) {
+      axios.put(`http://localhost:3000/api/tasks/uncomplete/${id}`);
+    }
+    updateTaskList();
   };
 
   useEffect(() => {
@@ -58,9 +65,8 @@ function App() {
                 <input
                   className="checkbox"
                   type="checkbox"
-                  onClick={() => {
-                    handleToggleTaskCompleted(entry._id);
-                  }}
+                  onChange={(e) => handleToggleTaskCompleted(entry._id, e)}
+                  defaultChecked={entry.checked}
                 />
                 <button
                   onClick={() => {
@@ -74,8 +80,6 @@ function App() {
           )}
         </ul>
       </div>
-      {/* <button onClick={updateTaskList}>Update</button> */}
-
       <form onSubmit={createTask}>
         <label>
           Task description
