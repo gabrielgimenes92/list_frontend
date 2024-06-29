@@ -5,9 +5,10 @@ import axios from 'axios';
 function App() {
   const [taskList, setTaskList] = useState();
   const [newTask, setNewTask] = useState();
+  const baseURI = 'https://list-backend-b0w2.onrender.com';
 
   const updateTaskList = () => {
-    axios.get('http://localhost:3000/api/tasks').then(function (response) {
+    axios.get(`${baseURI}/api/tasks`).then(function (response) {
       let newList = response.data;
       setTaskList(newList);
     });
@@ -16,7 +17,7 @@ function App() {
   const createTask = (event) => {
     event.preventDefault();
     axios
-      .post('http://localhost:3000/api/tasks', {
+      .post(`${baseURI}/api/tasks`, {
         description: newTask,
       })
       .then(function (response) {
@@ -25,20 +26,18 @@ function App() {
   };
 
   const deleteTask = (id) => {
-    axios
-      .delete(`http://localhost:3000/api/tasks/${id}`)
-      .then(function (response) {
-        updateTaskList();
-      });
+    axios.delete(`${baseURI}/api/tasks/${id}`).then(function (response) {
+      updateTaskList();
+    });
   };
 
   const handleToggleTaskCompleted = (id, event) => {
     console.log(event.target.checked);
 
     if (event.target.checked == true) {
-      axios.put(`http://localhost:3000/api/tasks/complete/${id}`);
+      axios.put(`${baseURI}/api/tasks/complete/${id}`);
     } else if (event.target.checked == false) {
-      axios.put(`http://localhost:3000/api/tasks/uncomplete/${id}`);
+      axios.put(`${baseURI}/api/tasks/uncomplete/${id}`);
     }
     updateTaskList();
   };
