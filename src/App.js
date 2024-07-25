@@ -34,9 +34,9 @@ function App() {
   const handleToggleTaskCompleted = (id, event) => {
     console.log(event.target.checked);
 
-    if (event.target.checked == true) {
+    if (event.target.checked === true) {
       axios.put(`${baseURI}/api/tasks/complete/${id}`);
-    } else if (event.target.checked == false) {
+    } else if (event.target.checked === false) {
       axios.put(`${baseURI}/api/tasks/uncomplete/${id}`);
     }
     updateTaskList();
