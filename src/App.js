@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import axios from 'axios';
+import loading from './assets/loading.gif';
+import logo from './assets/logo.png';
 
 function App() {
   const [taskList, setTaskList] = useState();
@@ -51,22 +53,34 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <div>
-        <h1>To-do list</h1>
+    <div className="appWrapper">
+      <div id="background" />
+      <div className="app">
+        <div className="logoAndTitle">
+          <img src={logo} />
+          <h1>Task List</h1>
+        </div>
+        <div className="addTaskFormWrapper">
+          <h2>What is next?</h2>
+          <form onSubmit={createTask} className="addTaskForm">
+            <input onChange={handleChange} placeholder="Buy more cat food" />
+            <button type="submit">Add task</button>
+          </form>
+        </div>
         <ul>
           {!taskList ? (
-            <></>
+            <img src={loading} alt="loading..."></img>
           ) : (
             taskList.map((entry) => (
               <li id={entry._id}>
-                <div className="description">{entry.description}</div>
+                <div className="holder" />
                 <input
                   className="checkbox"
                   type="checkbox"
                   onChange={(e) => handleToggleTaskCompleted(entry._id, e)}
                   defaultChecked={entry.checked}
                 />
+                <div className="description">{entry.description}</div>
                 <button
                   onClick={() => {
                     deleteTask(entry._id);
@@ -79,13 +93,6 @@ function App() {
           )}
         </ul>
       </div>
-      <form onSubmit={createTask}>
-        <label>
-          Task description
-          <input onChange={handleChange} />
-        </label>
-        <button type="submit">Save</button>
-      </form>
     </div>
   );
 }

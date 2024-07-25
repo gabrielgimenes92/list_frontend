@@ -1,38 +1,206 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  5. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+/*
+  8. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: 'Work Sans';
+
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.appWrapper {
+  text-align: center;  
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.appWrapper::before {
+  content: "";
+  position: absolute;
+  z-index: -10;
+  top: -50%;
+  left: -50%;
+  height: 200%;
+  width: 200%;
+  opacity: 40%;
+  background: url(./assets/backgroundIcon.png) 0 0 repeat;
+  background-repeat: space;
+  transform: rotate(-7.23deg);
+}
+
+.app {
+  margin: 64px auto 0 auto;
+  max-width: 954px;
+  border-radius: 30px;
+  padding: 80px;
+  background-color: #F4F5F5;
+}
+
+.logoAndTitle {
   display: flex;
-  flex-direction: column;
+  justify-content: start;
   align-items: center;
+  max-width: 794px;
+  margin: 0 auto;
+  gap: 16px;
+}
+
+h1 {
+  font-size: 40px;
+  color: #2C8F5B;
+  font-weight: 600;
+  text-align: start;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 20px;
+  text-align: start;
+  margin: 80px 0 16px 0;
+}
+
+.addTaskFormWrapper {
+  margin: 0 auto;
+  max-width: 794px;
+}
+
+.addTaskForm {
+  display: flex;
+  flex-flow: row nowrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  max-width: 794px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.addTaskForm input {
+  flex: 1 0 70%;
+  font-size: 16px;
+  font-family: 'Work Sans';
+  padding: 0 0 0 16px;
+  border: #2C8F5B 1px solid;
+  border-radius: 12px;
+}
+
+.addTaskForm button {
+  border: 0;
+  padding: 16px 24px;
+  font-family: 'Work Sans';
+  background-color: #2C8F5B;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
   color: white;
+  box-shadow: none;
 }
 
-.App-link {
-  color: #61dafb;
+ul {
+  margin: 0 auto;
+  max-width: 794px;
+  padding: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+li {
+  margin: 0.25rem 0;
+  display: flex;
+  flex-flow: row nowrap;
+  list-style: none;
+  justify-content: space-between;
+}
+
+.holder {
+  background-color: blue;
+  height: 22px;
+  width: 6px;
+  margin-right: 1rem;
+}
+
+.description {
+  flex: 1;
+  text-align: left;
+}
+
+.checkbox {
+  height: 24px;
+  width: 24px;
+  border-radius: 4px;
+  border: #2C8F5B 1 solid;
+  margin-right: 2rem;
+}
+
+input[type='checkbox'] {
+  accent-color: #2C8F5B;
+}
+
+input[type='checkbox']:checked {
+  background-color: pink;
+}
+
+.checked:hover {
+  background-color: blue;
+}
+
+form label {
+  flex-grow: 1;
+  text-align: left;
+}
+
+form label input {
+  display: block;
+  margin-top: .5rem;
+  width: 95%;
+}
+
+form button {
+  padding: 1rem 2rem;
 }
