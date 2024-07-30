@@ -57,7 +57,7 @@ body {
 
 .appWrapper {
   text-align: center;  
-  height: 100vh;
+  /* height: 100vh; */
   overflow: hidden;
   position: relative;
 }
@@ -77,7 +77,7 @@ body {
 }
 
 .app {
-  margin: 64px auto 0 auto;
+  margin: 64px auto 64px auto;
   max-width: 954px;
   border-radius: 30px;
   padding: 80px;
@@ -91,6 +91,7 @@ body {
   max-width: 794px;
   margin: 0 auto;
   gap: 16px;
+  height: 48px;
 }
 
 h1 {
@@ -121,15 +122,21 @@ h2 {
   flex-flow: row nowrap;
   justify-content: space-between;
   gap: 16px;
+  height: 48px;
 }
 
 .addTaskForm input {
   flex: 1 0 70%;
   font-size: 16px;
+  line-height: 16px;
   font-family: 'Work Sans';
   padding: 0 0 0 16px;
   border: #2C8F5B 1px solid;
   border-radius: 12px;
+}
+
+.addTaskForm input::placeholder {
+  color: #CACECD;
 }
 
 .addTaskForm button {
@@ -139,6 +146,7 @@ h2 {
   background-color: #2C8F5B;
   border-radius: 12px;
   font-size: 16px;
+  line-height: 16px;
   font-weight: 600;
   color: white;
   box-shadow: none;
@@ -151,23 +159,45 @@ ul {
 }
 
 li {
-  margin: 0.25rem 0;
+  margin-top: 16px;
   display: flex;
   flex-flow: row nowrap;
   list-style: none;
   justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
 }
 
 .holder {
-  background-color: blue;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* background-color: blue; */
   height: 22px;
-  width: 6px;
+  width: 12px;
   margin-right: 1rem;
+  justify-content: center;
+}
+
+.circle {
+  margin: auto;
+  padding: 0;
+  background-color: #4E5551;
+  height: 3px;
+  width: 3px;
+  border-radius: 50%;
+}
+
+.checkboxDescriptionWrapper {
+  display: flex;
+  flex-grow: 1;
+  justify-content: start;
+  align-items: center;
 }
 
 .description {
   flex: 1;
   text-align: left;
+  margin-left: 8px;
 }
 
 .checkbox {
@@ -175,15 +205,15 @@ li {
   width: 24px;
   border-radius: 4px;
   border: #2C8F5B 1 solid;
-  margin-right: 2rem;
 }
 
 input[type='checkbox'] {
   accent-color: #2C8F5B;
 }
 
-input[type='checkbox']:checked {
-  background-color: pink;
+input:checked+span {
+  text-decoration: line-through;
+  color: #4E5553;
 }
 
 .checked:hover {
@@ -203,4 +233,49 @@ form label input {
 
 form button {
   padding: 1rem 2rem;
+}
+
+.buttons {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 16px;
+  justify-content: end;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Work Sans';
+}
+
+.defaultButton {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  line-height: 16px;
+  min-width: 101px;
+}
+
+.editButton {
+  background-color: #F4F5F5;
+  border-radius: 8px;
+  border: #2C8F5B 1.5px solid;
+  padding: 10px 16px;
+  color: #2C8F5B;
+}
+
+.deleteButton {
+  background-color: #AF3636;
+  border-radius: 8px;
+  padding: 10px 16px;
+  color: white;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+}                                                                                                                                                               
+
+.deleteButton .icon {
+  color: white;
 }

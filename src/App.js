@@ -3,6 +3,8 @@ import './App.css';
 import axios from 'axios';
 import loading from './assets/loading.gif';
 import logo from './assets/logo.png';
+import Trash from './assets/Trash.js';
+import Edit from './assets/Edit.js';
 
 function App() {
   const [taskList, setTaskList] = useState();
@@ -68,26 +70,49 @@ function App() {
           </form>
         </div>
         <ul>
+          <h2>Tasks</h2>
           {!taskList ? (
             <img src={loading} alt="loading..."></img>
           ) : (
             taskList.map((entry) => (
               <li id={entry._id}>
-                <div className="holder" />
-                <input
-                  className="checkbox"
-                  type="checkbox"
-                  onChange={(e) => handleToggleTaskCompleted(entry._id, e)}
-                  defaultChecked={entry.checked}
-                />
-                <div className="description">{entry.description}</div>
-                <button
-                  onClick={() => {
-                    deleteTask(entry._id);
-                  }}
-                >
-                  Delete
-                </button>
+                <div className="holder">
+                  <spam className="circle" />
+                  <spam className="circle" />
+                  <spam className="circle" />
+                  <spam className="circle" />
+                  <spam className="circle" />
+                  <spam className="circle" />
+                </div>
+                <label className="checkboxDescriptionWrapper">
+                  <input
+                    className="checkbox"
+                    type="checkbox"
+                    onChange={(e) => handleToggleTaskCompleted(entry._id, e)}
+                    defaultChecked={entry.checked}
+                  />
+                  <span className="description">{entry.description}</span>
+                </label>
+                <div className="buttons">
+                  <div
+                    className="defaultButton editButton"
+                    // onClick={() => {
+                    //   deleteTask(entry._id);
+                    // }}
+                  >
+                    <Edit className="icon" />
+                    <p>Edit</p>
+                  </div>
+                  <div
+                    className="defaultButton deleteButton"
+                    onClick={() => {
+                      deleteTask(entry._id);
+                    }}
+                  >
+                    <Trash />
+                    <p>Delete</p>
+                  </div>
+                </div>
               </li>
             ))
           )}
