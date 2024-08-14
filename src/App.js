@@ -35,6 +35,10 @@ function App() {
     });
   };
 
+  const editTask = (id) => {
+    return;
+  };
+
   const handleToggleTaskCompleted = (id, event) => {
     console.log(event.target.checked);
 
@@ -96,9 +100,9 @@ function App() {
                 <div className="buttons">
                   <div
                     className="defaultButton editButton"
-                    // onClick={() => {
-                    //   deleteTask(entry._id);
-                    // }}
+                    onClick={() => {
+                      editTask(entry._id);
+                    }}
                   >
                     <Edit className="icon" />
                     <p>Edit</p>
