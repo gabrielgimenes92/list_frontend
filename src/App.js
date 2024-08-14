@@ -20,14 +20,18 @@ function App() {
 
   const createTask = (event) => {
     event.preventDefault();
-    axios
-      .post(`${baseURI}/api/tasks`, {
-        description: newTask,
-      })
-      .then(function (response) {
-        updateTaskList();
-      })
-      .then(setNewTask(''));
+    if (newTask === '') {
+      return console.log('input empty');
+    } else {
+      axios
+        .post(`${baseURI}/api/tasks`, {
+          description: newTask,
+        })
+        .then(function (response) {
+          updateTaskList();
+        })
+        .then(setNewTask(''));
+    }
   };
 
   const deleteTask = (id) => {
