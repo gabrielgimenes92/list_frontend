@@ -176,6 +176,7 @@ li {
   width: 12px;
   margin-right: 1rem;
   justify-content: center;
+  cursor: grab;
 }
 
 .circle {
@@ -185,6 +186,7 @@ li {
   height: 3px;
   width: 3px;
   border-radius: 50%;
+  /* cursor: grab; */
 }
 
 .checkboxDescriptionWrapper {
@@ -233,6 +235,13 @@ form label input {
 
 form button {
   padding: 1rem 2rem;
+  cursor: pointer;
+  transition: background-color 0.4s;
+}
+
+form button:hover {
+  background-color: #288051;
+  transition: background-color 0.4s;
 }
 
 .buttons {
@@ -262,6 +271,7 @@ form button {
   border: #2C8F5B 1.5px solid;
   padding: 10px 16px;
   color: #2C8F5B;
+  cursor:not-allowed;
 }
 
 .deleteButton {
@@ -269,6 +279,12 @@ form button {
   border-radius: 8px;
   padding: 10px 16px;
   color: white;
+  transition: background-color 0.4s;
+}
+
+.deleteButton:hover {
+  background-color: #942e2e;
+  transition: background-color 0.4s;
 }
 
 .icon {
