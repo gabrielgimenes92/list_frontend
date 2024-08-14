@@ -26,7 +26,8 @@ function App() {
       })
       .then(function (response) {
         updateTaskList();
-      });
+      })
+      .then(setNewTask(''));
   };
 
   const deleteTask = (id) => {
@@ -69,7 +70,11 @@ function App() {
         <div className="addTaskFormWrapper">
           <h2>What is next?</h2>
           <form onSubmit={createTask} className="addTaskForm">
-            <input onChange={handleChange} placeholder="Buy more cat food" />
+            <input
+              onChange={handleChange}
+              placeholder="Buy more cat food"
+              value={newTask}
+            />
             <button type="submit">Add task</button>
           </form>
         </div>
