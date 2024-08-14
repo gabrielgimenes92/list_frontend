@@ -76,7 +76,11 @@ function App() {
         <ul>
           <h2>Tasks</h2>
           {!taskList ? (
-            <img src={loading} alt="loading..."></img>
+            <img
+              src={loading}
+              alt="loading..."
+              style={{ margin: '1rem auto', maxWidth: '100%', height: '5rem' }}
+            ></img>
           ) : (
             taskList.map((entry) => (
               <li id={entry._id}>

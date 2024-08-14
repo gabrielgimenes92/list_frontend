@@ -57,7 +57,7 @@ body {
 
 .appWrapper {
   text-align: center;  
-  /* height: 100vh; */
+  height: 100vh;
   overflow: hidden;
   position: relative;
 }
@@ -66,10 +66,10 @@ body {
   content: "";
   position: absolute;
   z-index: -10;
-  top: -50%;
-  left: -50%;
-  height: 200%;
-  width: 200%;
+  top: -250%;
+  left: -250%;
+  height: 500%;
+  width: 500%;
   opacity: 40%;
   background: url(./assets/backgroundIcon.png) 0 0 repeat;
   background-repeat: space;
