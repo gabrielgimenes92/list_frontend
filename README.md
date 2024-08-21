@@ -1,3 +1,6 @@
+Check the backend too:
+[https://github.com/gabrielgimenes92/list_backend](https://github.com/gabrielgimenes92/list_backend)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
