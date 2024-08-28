@@ -298,7 +298,9 @@ form button:hover {
 
 .footer {
   position: absolute;
-  bottom: 0.5rem;
+  bottom: 0px;
+  padding: 0.5rem 0;
   width: 100%;
   text-align: center;
+  background-color: #F4F5F5;
 }
