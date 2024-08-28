@@ -85,11 +85,18 @@ function App() {
         <ul>
           <h2>Tasks</h2>
           {!taskList ? (
-            <img
-              src={loading}
-              alt="loading..."
-              style={{ margin: '1rem auto', maxWidth: '100%', height: '5rem' }}
-            ></img>
+            <div>
+              <img
+                src={loading}
+                alt="loading..."
+                style={{
+                  margin: '1rem auto',
+                  maxWidth: '100%',
+                  height: '5rem',
+                }}
+              ></img>
+              <p>Waking up the backend, this can take a minute</p>
+            </div>
           ) : (
             taskList.map((entry) => (
               <li id={entry._id}>
@@ -134,6 +141,12 @@ function App() {
             ))
           )}
         </ul>
+      </div>
+      <div className="footer">
+        <p>
+          This is a project by Gabriel Gimenes, check my{' '}
+          <a href="https://gabrielgimenes92.github.io">portfolio</a> for more
+        </p>
       </div>
     </div>
   );

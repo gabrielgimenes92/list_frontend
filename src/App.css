@@ -295,3 +295,10 @@ form button:hover {
 .deleteButton .icon {
   color: white;
 }
+
+.footer {
+  position: absolute;
+  bottom: 0.5rem;
+  width: 100%;
+  text-align: center;
+}
